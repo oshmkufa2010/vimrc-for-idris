@@ -7,5 +7,9 @@ endif
 augroup filetypedetect
   au! BufRead,BufNewFile *.idr setfiletype idris
   au! BufRead,BufNewFile *.lidr setfiletype idris
-  au! BufNewFile,BufRead *.agda setf agda
+
+  au! BufNewFile,BufRead *.agda setfiletype agda
+  au! BufNewFile,BufRead *.lagda.md setfiletype agda
+
+  au! BufNewFile, BufRead *.v setfiletype coq
 augroup END
