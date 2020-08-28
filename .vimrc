@@ -1,4 +1,4 @@
-let mapleader=";"
+let mapleader="\<space>"
 let maplocalleader="\\"
 
 set number
@@ -64,6 +64,8 @@ set wildmenu
 
 map <C-n> :NERDTreeToggle<CR>
 
+execute pathogen#infect()
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
@@ -72,4 +74,22 @@ Plugin 'idris-hackers/idris-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/vimshell.vim'
+Plugin 'whonore/Coqtail' | Plugin 'let-def/vimbufsync'
+Plugin 'derekelkins/agda-vim'
 call vundle#end()            " required
+
+let g:agda_extraincpaths = ["/usr/local/lib/agda/agda-stdlib-1.1/src"]
+
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\
